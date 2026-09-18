@@ -1,16 +1,60 @@
+import { useLocation } from 'react-router-dom'
 import { Flame, Zap, Shield } from 'lucide-react'
 import { mockStudentData } from '../data/mockDashboardData'
 
+const routeHeaderMap = {
+  '/dashboard': {
+    title: 'Dashboard',
+    subtitle: 'Personal Coding Game Hub',
+  },
+  '/programming': {
+    title: 'Programming World',
+    subtitle: 'Master Programming Through Challenges',
+  },
+  '/programming/variables': {
+    title: 'Variables — Level 01',
+    subtitle: 'Interactive Challenge Zone',
+  },
+  '/dsa': {
+    title: 'DSA World',
+    subtitle: 'Master Data Structures & Algorithms Through Challenges',
+  },
+  '/web': {
+    title: 'Web World',
+    subtitle: 'Build Your Web Skills Through Challenges',
+  },
+  '/challenges': {
+    title: 'Challenges',
+    subtitle: 'Test Your Skills & Earn XP',
+  },
+  '/achievements': {
+    title: 'Achievements',
+    subtitle: 'Collect Badges & Milestones',
+  },
+  '/progress': {
+    title: 'Progress',
+    subtitle: 'Track Your Learning Journey',
+  },
+  '/profile': {
+    title: 'Profile',
+    subtitle: 'Your CodeQuest Profile',
+  },
+}
+
 export default function DashboardHeader() {
+  const location = useLocation()
+  const currentHeader =
+    routeHeaderMap[location.pathname] || routeHeaderMap['/dashboard']
+
   return (
     <header className="w-full py-4 px-4 sm:px-6 lg:px-8 border-b border-slate-800/60 bg-slate-950/40 backdrop-blur-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-      {/* Page Title */}
+      {/* Dynamic Page Title */}
       <div>
         <h1 className="text-2xl font-extrabold text-white tracking-tight">
-          Dashboard
+          {currentHeader.title}
         </h1>
         <p className="text-xs text-slate-400">
-          Personal Coding Game Hub
+          {currentHeader.subtitle}
         </p>
       </div>
 
