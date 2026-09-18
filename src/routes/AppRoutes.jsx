@@ -1,9 +1,11 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Code2, Cpu, Globe, Swords, Trophy, BarChart3, User } from 'lucide-react'
+import { Cpu, Globe, Swords, Trophy, BarChart3, User } from 'lucide-react'
 import LandingPage from '../features/landing/LandingPage'
 import AuthPage from '../features/auth/AuthPage'
 import AppShell from '../components/layout/AppShell'
 import DashboardPage from '../features/dashboard/DashboardPage'
+import ProgrammingWorldPage from '../features/programming/ProgrammingWorldPage'
+import TopicPlaceholder from '../features/programming/components/TopicPlaceholder'
 import AppPlaceholderPage from '../features/placeholders/AppPlaceholderPage'
 
 export default function AppRoutes() {
@@ -16,17 +18,8 @@ export default function AppRoutes() {
       {/* AUTHENTICATED APP AREA ROUTES (Nested in AppShell) */}
       <Route element={<AppShell />}>
         <Route path="/dashboard" element={<DashboardPage />} />
-        <Route
-          path="/programming"
-          element={
-            <AppPlaceholderPage
-              title="Programming World"
-              subtitle="Your interactive programming journey is coming next."
-              icon={Code2}
-              badgeText="World Preview"
-            />
-          }
-        />
+        <Route path="/programming" element={<ProgrammingWorldPage />} />
+        <Route path="/programming/variables" element={<TopicPlaceholder />} />
         <Route
           path="/dsa"
           element={
