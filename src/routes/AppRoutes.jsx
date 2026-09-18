@@ -5,7 +5,7 @@ import AuthPage from '../features/auth/AuthPage'
 import AppShell from '../components/layout/AppShell'
 import DashboardPage from '../features/dashboard/DashboardPage'
 import ProgrammingWorldPage from '../features/programming/ProgrammingWorldPage'
-import TopicPlaceholder from '../features/programming/components/TopicPlaceholder'
+import ChallengeEngine from '../features/programming/challenges/ChallengeEngine'
 import AppPlaceholderPage from '../features/placeholders/AppPlaceholderPage'
 
 export default function AppRoutes() {
@@ -19,7 +19,7 @@ export default function AppRoutes() {
       <Route element={<AppShell />}>
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/programming" element={<ProgrammingWorldPage />} />
-        <Route path="/programming/variables" element={<TopicPlaceholder />} />
+        <Route path="/programming/variables" element={<ChallengeEngine />} />
         <Route
           path="/dsa"
           element={

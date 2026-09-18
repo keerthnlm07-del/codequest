@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion'
 import TopicNode from './TopicNode'
-import { programmingTopicsData } from '../data/programmingWorldData'
-import { Star, Flag, Trophy, ShieldAlert } from 'lucide-react'
+import { useProgramming } from '../context/ProgrammingContext'
+import { Star, Trophy } from 'lucide-react'
 
 export default function ProgrammingMap() {
+  const { topics } = useProgramming()
+
   return (
     <div className="relative py-4 space-y-8">
       {/* Start Marker Banner */}
       <div className="flex items-center justify-center gap-2 max-w-xs mx-auto px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 font-bold text-xs tracking-wider uppercase text-center shadow-lg shadow-indigo-950/40">
-        <Star className="w-4 h-4 text-amber-400 fill-amber-400 animate-spin-slow" />
+        <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
         <span>Quest Zone 1: Fundamentals</span>
       </div>
 
@@ -20,7 +22,7 @@ export default function ProgrammingMap() {
 
       {/* Topics Journey List */}
       <div className="space-y-10 relative z-10">
-        {programmingTopicsData.map((topic, index) => {
+        {topics.map((topic, index) => {
           const isLeft = index % 2 === 0
           return (
             <div
