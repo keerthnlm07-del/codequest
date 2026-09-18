@@ -1,23 +1,16 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Code2, Cpu, Globe, Lock } from 'lucide-react'
+import { Code2, Cpu, Globe } from 'lucide-react'
 import LandingPage from '../features/landing/LandingPage'
+import AuthPage from '../features/auth/AuthPage'
 import WorldPlaceholderPage from '../features/placeholders/WorldPlaceholderPage'
+import DashboardPlaceholderPage from '../features/placeholders/DashboardPlaceholderPage'
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route
-        path="/signin"
-        element={
-          <WorldPlaceholderPage
-            title="Sign In Coming Soon"
-            subtitle="Authentication will be connected in a future update."
-            icon={Lock}
-            badgeText="Auth Locked"
-          />
-        }
-      />
+      <Route path="/signin" element={<AuthPage />} />
+      <Route path="/dashboard" element={<DashboardPlaceholderPage />} />
       <Route
         path="/programming"
         element={
